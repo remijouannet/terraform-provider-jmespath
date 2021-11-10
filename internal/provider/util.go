@@ -28,7 +28,7 @@ func validateProgramAttr(v interface{}) error {
 	// using the PATH environment variable.
 	_, err := exec.LookPath(args[0].(string))
 	if err != nil {
-		return fmt.Errorf("can't find external program %q", args[0])
+		return fmt.Errorf("can't find jsonpath program %q", args[0])
 	}
 
 	return nil

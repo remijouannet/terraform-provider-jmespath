@@ -21,17 +21,17 @@ Requirements
 Building The Provider
 ---------------------
 
-Clone repository to: `$GOPATH/src/github.com/terraform-providers/terraform-provider-external`
+Clone repository to: `$GOPATH/src/github.com/terraform-providers/terraform-provider-jmespath`
 
 ```sh
 $ mkdir -p $GOPATH/src/github.com/terraform-providers; cd $GOPATH/src/github.com/terraform-providers
-$ git clone git@github.com:terraform-providers/terraform-provider-external
+$ git clone git@github.com:terraform-providers/terraform-provider-jmespath
 ```
 
 Enter the provider directory and build the provider
 
 ```sh
-$ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-external
+$ cd $GOPATH/src/github.com/terraform-providers/terraform-provider-jmespath
 $ make build
 ```
 
@@ -49,7 +49,7 @@ To compile the provider, run `make build`. This will build the provider and put 
 ```sh
 $ make bin
 ...
-$ $GOPATH/bin/terraform-provider-external
+$ $GOPATH/bin/terraform-provider-jmespath
 ...
 ```
 

@@ -13,5 +13,5 @@ func TestProvider(t *testing.T) {
 }
 
 var testProviders = map[string]*schema.Provider{
-	"external": New(),
+	"jmespath": New(),
 }

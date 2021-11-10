@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// This is a minimal implementation of the external data source protocol
+// This is a minimal implementation of the jsonpath data source protocol
 // intended only for use in the provider acceptance tests.
 //
 // In practice it's likely not much harder to just write a real Terraform

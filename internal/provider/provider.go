@@ -7,7 +7,7 @@ import (
 func New() *schema.Provider {
 	return &schema.Provider{
 		DataSourcesMap: map[string]*schema.Resource{
-			"external": dataSource(),
+			"jmespath": dataSource(),
 		},
 		ResourcesMap: map[string]*schema.Resource{},
 	}

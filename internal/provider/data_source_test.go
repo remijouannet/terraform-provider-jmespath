@@ -14,7 +14,7 @@ import (
 )
 
 const testDataSourceConfig_basic = `
-data "external" "test" {
+data "jmespath" "test" {
   program = ["%s", "cheese"]
 
   query = {
@@ -23,11 +23,11 @@ data "external" "test" {
 }
 
 output "query_value" {
-  value = "${data.external.test.result["query_value"]}"
+  value = "${data.jmespath.test.result["query_value"]}"
 }
 
 output "argument" {
-  value = "${data.external.test.result["argument"]}"
+  value = "${data.jmespath.test.result["argument"]}"
 }
 `
 
@@ -44,7 +44,7 @@ func TestDataSource_basic(t *testing.T) {
 			{
 				Config: fmt.Sprintf(testDataSourceConfig_basic, programPath),
 				Check: func(s *terraform.State) error {
-					_, ok := s.RootModule().Resources["data.external.test"]
+					_, ok := s.RootModule().Resources["data.jmespath.test"]
 					if !ok {
 						return fmt.Errorf("missing data resource")
 					}
@@ -79,7 +79,7 @@ func TestDataSource_basic(t *testing.T) {
 }
 
 const testDataSourceConfig_error = `
-data "external" "test" {
+data "jmespath" "test" {
   program = ["%s"]
 
   query = {
@@ -110,7 +110,7 @@ func buildDataSourceTestProgram() (string, error) {
 	// We have a simple Go program that we use as a stub for testing.
 	cmd := exec.Command(
 		"go", "install",
-		"github.com/terraform-providers/terraform-provider-external/internal/provider/test-programs/tf-acc-external-data-source",
+		"github.com/terraform-providers/terraform-provider-jmespath/internal/provider/test-programs/tf-acc-jmespath-data-source",
 	)
 	err := cmd.Run()
 
@@ -124,7 +124,7 @@ func buildDataSourceTestProgram() (string, error) {
 	}
 
 	programPath := path.Join(
-		filepath.SplitList(gopath)[0], "bin", "tf-acc-external-data-source",
+		filepath.SplitList(gopath)[0], "bin", "tf-acc-jmespath-data-source",
 	)
 	return programPath, nil
 }

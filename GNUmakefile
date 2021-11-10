@@ -7,6 +7,9 @@ default: build
 build: fmtcheck
 	go install
 
+install: build
+	cp /root/go/bin/terraform-provider-jmespath /root/.terraform.d/plugins/local/remijouannet/jmespath/0.0.1/linux_amd64/terraform-provider-jmespath_v0.0.1
+
 test: fmtcheck
 	go test -i $(TEST) || exit 1
 	echo $(TEST) | \
